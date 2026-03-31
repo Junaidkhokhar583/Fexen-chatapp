@@ -3,23 +3,19 @@ import MessageInput from "./MessageInput"
 import MessageList from "./MessageList"
 import useWebSocket from "../hooks/useWebSocket"
 
-
 export default function Chat(){
-    const [messages,setMessages]=useState("")
+    const [messages, setMessages] = useState([])
 
-    const handleMessage=(msg)=>{
-        setMessages((prev)=>[...prev,msg])
+    const handleMessage = (msg) => {
+        setMessages((prev) => [...prev, msg])
     }
 
-    const {sendMessage}=useWebSocket(handleMessage);
+    const { sendMessage } = useWebSocket(handleMessage);
 
-    return(
-    <div>
-        <h1>Chat App</h1>
-
-        <MessageList messages={messages}/>
-        <MessageInput sendMessage={sendMessage}/>
-    </div>
+    return (
+        <div>
+            <MessageList messages={messages}/>  
+            <MessageInput sendMessage={sendMessage}/>
+        </div>
     )
-
 }

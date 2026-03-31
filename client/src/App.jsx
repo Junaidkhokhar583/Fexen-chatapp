@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <h1>WebSocket api</h1>
+    <h1 className='text-center text-2xl'>Chat app with WebSocket api</h1>
 <Chat/>
     </>
   )
